@@ -282,17 +282,22 @@ export class StorageService {
   static async clearLevelCloudData(levelId: SchoolLevelId): Promise<void> {
     if (!this.isFirebaseInitialized || !this.db) return;
     try {
-      const studentsRef = collection(this.db, 'events', levelId, 'students');
-      const heatsRef = collection(this.db, 'events', levelId, 'heats');
-      
-      const studentsSnap = await getDocs(studentsRef);
-      const heatsSnap = await getDocs(heatsRef);
+      const levelsToClear: SchoolLevelId[] = [levelId, 'primaria', 'preescolar', 'secundaria'];
+      const uniqueLevels = Array.from(new Set(levelsToClear));
 
-      const deletePromises: Promise<void>[] = [];
-      studentsSnap.forEach(d => deletePromises.push(deleteDoc(d.ref)));
-      heatsSnap.forEach(d => deletePromises.push(deleteDoc(d.ref)));
+      for (const lvl of uniqueLevels) {
+        const studentsRef = collection(this.db, 'events', lvl, 'students');
+        const heatsRef = collection(this.db, 'events', lvl, 'heats');
+        
+        const studentsSnap = await getDocs(studentsRef);
+        const heatsSnap = await getDocs(heatsRef);
 
-      await Promise.all(deletePromises);
+        const deletePromises: Promise<void>[] = [];
+        studentsSnap.forEach(d => deletePromises.push(deleteDoc(d.ref)));
+        heatsSnap.forEach(d => deletePromises.push(deleteDoc(d.ref)));
+
+        await Promise.all(deletePromises);
+      }
     } catch (err) {
       console.error('Error clearing cloud level data:', err);
     }
