@@ -21,7 +21,7 @@ export const LaSalleLogo: React.FC<LaSalleLogoProps> = ({
       {/* Official Colegio La Salle de Tuxtla Circular Shield Logo Image */}
       <div className="relative shrink-0">
         <img 
-          src="/LOGO.png" 
+          src="./LOGO.png" 
           alt="Colegio La Salle Tuxtla" 
           style={{ width: size, height: size }}
           className="relative rounded-full shadow-lg object-contain bg-white p-0.5 border-2 border-amber-400/90 hover:scale-105 transition-transform duration-200"

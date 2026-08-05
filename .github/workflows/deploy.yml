@@ -3,6 +3,7 @@ name: Desplegar Web App de Mini/Olimpiadas a GitHub Pages
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 # Grant GitHub Actions permission to publish to GitHub Pages
 permissions:
@@ -27,7 +28,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Instalar Dependencias
@@ -37,7 +38,7 @@ jobs:
         run: npm run build
 
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Subir Artefactos de Build
         uses: actions/upload-pages-artifact@v3

@@ -87,6 +87,7 @@ export class StorageService {
   }
 
   // Load students per school level (preescolar, primaria, secundaria)
+  // Load students per school level (preescolar, primaria, secundaria)
   static loadLocalStudents(levelId: SchoolLevelId = 'primaria'): Student[] {
     try {
       const key = `mini_olimpiadas_students_v1_${levelId}`;
@@ -104,7 +105,10 @@ export class StorageService {
       console.error('Error loading local students:', err);
     }
 
-    if (levelId === 'primaria') {
+    // Only load sample data on initial first-time run if key has never been set
+    const hasInitializedKey = `mini_olimpiadas_has_init_v1_${levelId}`;
+    if (levelId === 'primaria' && !localStorage.getItem(hasInitializedKey)) {
+      localStorage.setItem(hasInitializedKey, 'true');
       this.saveLocalStudents(INITIAL_SAMPLE_STUDENTS, 'primaria');
       return INITIAL_SAMPLE_STUDENTS;
     }
@@ -114,6 +118,8 @@ export class StorageService {
   static saveLocalStudents(students: Student[], levelId: SchoolLevelId = 'primaria'): void {
     try {
       const key = `mini_olimpiadas_students_v1_${levelId}`;
+      const hasInitializedKey = `mini_olimpiadas_has_init_v1_${levelId}`;
+      localStorage.setItem(hasInitializedKey, 'true');
       localStorage.setItem(key, JSON.stringify(students));
     } catch (err) {
       console.error('Error saving local students:', err);

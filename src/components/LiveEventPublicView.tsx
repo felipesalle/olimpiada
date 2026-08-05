@@ -273,7 +273,7 @@ export const LiveEventPublicView: React.FC<LiveEventPublicViewProps> = ({
           const activeResultsMap = new Map((activeHeat.results || []).map(r => [r.studentId, r]));
 
           // Avatar Image: niño.jpg vs niña.jpg
-          const runnerAvatar = activeHeat.gender === 'boy' ? '/niño.jpg' : '/niña.jpg';
+          const runnerAvatar = activeHeat.gender === 'boy' ? './niño.jpg' : './niña.jpg';
 
           return (
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 border-2 border-rose-500/80 p-5 md:p-6 shadow-2xl space-y-5 dark-card-fix">
@@ -548,7 +548,7 @@ export const LiveEventPublicView: React.FC<LiveEventPublicViewProps> = ({
                   {/* PODIO IMAGE BANNER */}
                   <div className="bg-slate-950/80 p-3 rounded-2xl border border-slate-800 text-center">
                     <img 
-                      src="/podio.png" 
+                      src="./podio.png" 
                       alt="Podio Olímpico de Ganadores" 
                       className="max-h-40 md:max-h-48 object-contain mx-auto drop-shadow-lg"
                     />
