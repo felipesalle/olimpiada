@@ -174,11 +174,9 @@ export class StorageService {
         });
 
         if (snapshot.empty) {
-          const local = this.loadLocalStudents(levelId);
-          if (local.length > 0) {
-            local.forEach(st => this.syncStudentToCloud(st, levelId));
-            return;
-          }
+          this.saveLocalStudents([], levelId);
+          onUpdate([]);
+          return;
         }
 
         // Cloud snapshot is authoritative for deletions, additions, and updates
@@ -213,11 +211,9 @@ export class StorageService {
         });
 
         if (snapshot.empty) {
-          const local = this.loadLocalHeats(levelId);
-          if (local.length > 0) {
-            local.forEach(h => this.syncHeatToCloud(h, levelId));
-            return;
-          }
+          this.saveLocalHeats([], levelId);
+          onUpdate([]);
+          return;
         }
 
         // Cloud snapshot is authoritative for deletions, additions, and updates
