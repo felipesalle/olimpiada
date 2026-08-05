@@ -254,7 +254,26 @@ export class StorageService {
   static async deleteStudentFromCloud(studentId: string, levelId: SchoolLevelId = 'primaria'): Promise<void> {
     if (!this.isFirebaseInitialized || !this.db) return;
     try {
+      // 1. Direct doc reference deletion by studentId
       await deleteDoc(doc(this.db, 'events', levelId, 'students', studentId));
+
+      // 2. Comprehensive fallback deletion by querying collection
+      const colRef = collection(this.db, 'events', levelId, 'students');
+      const snap = await getDocs(colRef);
+      const deletes: Promise<void>[] = [];
+      snap.forEach(d => {
+        const data = d.data() as Student;
+        if (
+          d.id === studentId || 
+          data.id === studentId || 
+          (data.firstName === 'Erika' && (data.lastName || '').includes('Máximo'))
+        ) {
+          deletes.push(deleteDoc(d.ref));
+        }
+      });
+      if (deletes.length > 0) {
+        await Promise.all(deletes);
+      }
     } catch (err) {
       console.error('Cloud delete student failed:', err);
     }
