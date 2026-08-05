@@ -15,7 +15,8 @@ import {
   GraduationCap,
   Sun,
   Moon,
-  FileText
+  FileText,
+  Download
 } from 'lucide-react';
 import { LaSalleLogo } from './LaSalleLogo';
 import type { SchoolLevelId } from '../types/olympics';
@@ -267,6 +268,16 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <Upload className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Importar</span>
+              </button>
+
+              {/* Export Backup Button */}
+              <button
+                onClick={onExportData}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 shadow-md transition-all"
+                title="Exportar respaldo JSON de toda la olimpiada"
+              >
+                <Download className="w-3.5 h-3.5 text-amber-400" />
+                <span className="hidden sm:inline">Exportar</span>
               </button>
 
               {/* Firebase Cloud Sync Button */}
