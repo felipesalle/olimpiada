@@ -13,15 +13,8 @@ import {
 const LOCAL_STORAGE_KEY_FIREBASE = 'mini_olimpiadas_firebase_config_v1';
 const LOCAL_STORAGE_KEY_ACTIVE_LEVEL = 'mini_olimpiadas_active_level_v1';
 
-// Initial sample data for primaria first run
-const INITIAL_SAMPLE_STUDENTS: Student[] = [
-  { id: 's1', firstName: 'Jesús Miguel', lastName: 'Tipacamú Gómez', gradeGroup: '1º A', gender: 'boy', events: [], createdAt: Date.now() - 10000 },
-  { id: 's2', firstName: 'Leonardo', lastName: 'Bermúdez Burgos', gradeGroup: '1º A', gender: 'boy', events: [], createdAt: Date.now() - 9000 },
-  { id: 's3', firstName: 'Emiliano', lastName: 'Zepeda Gómez', gradeGroup: '1º B', gender: 'boy', events: [], createdAt: Date.now() - 8000 },
-  { id: 's4', firstName: 'Iker Oswaldo', lastName: 'Hernández Collí', gradeGroup: '1º A', gender: 'boy', events: [], createdAt: Date.now() - 7000 },
-  { id: 's5', firstName: 'Altair Sophia', lastName: 'Alemán García', gradeGroup: '1º A', gender: 'girl', events: [], createdAt: Date.now() - 6000 },
-  { id: 's6', firstName: 'Erika', lastName: 'Máximo López', gradeGroup: '1º B', gender: 'girl', events: [], createdAt: Date.now() - 5000 }
-];
+// Initial sample data for primaria (Empty array for production use)
+const INITIAL_SAMPLE_STUDENTS: Student[] = [];
 
 export const DEFAULT_FIREBASE_CONFIG: FirebaseSyncConfig = {
   apiKey: "AIzaSyD2qygTuNBP82d2-V1YINKBXjUTTto0v4g",

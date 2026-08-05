@@ -159,16 +159,6 @@ export const StudentsView: React.FC<StudentsViewProps> = ({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          {onLoadPreescolarSimulation && (
-            <button
-              onClick={onLoadPreescolarSimulation}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black bg-pink-500/20 text-pink-300 border border-pink-500/40 hover:bg-pink-500/30 transition-all shrink-0 shadow-md shadow-pink-500/10"
-              title="Cargar simulación completa para Preescolar & Maternal con alumnos, hits y resultados"
-            >
-              <Sparkles className="w-4 h-4 text-pink-400 animate-pulse" />
-              <span>⚡ Simulación Preescolar</span>
-            </button>
-          )}
 
           {duplicateCountInList > 0 && (
             <button
