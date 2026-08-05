@@ -1,32 +1,41 @@
-# React + TypeScript + Vite
+# 🏆 Mini / Olimpiadas Escolares — Colegio La Salle de Tuxtla
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sistema web en tiempo real para la gestión, control en vivo de carreras/hits, planillas de jueces e informes ejecutivos de competencias deportivas escolares.
 
-Currently, two official plugins are available:
+🌐 **Sitio Web en Vivo (GitHub Pages)**: [https://felipesalle.github.io/olimpiada/](https://felipesalle.github.io/olimpiada/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Funcionalidades Principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Gestión Táctil de Hits (Consola del Maestro)**:
+   - Registro de tiempos, marcas y medallas de Oro 🥇, Plata 🥈, Bronce 🥉 y DNS.
+   - Avance secuencial automático de Hits con guardado en tiempo real.
+   - Modal festivo de conclusión con navegación al Medallero y Reportes.
 
-## Expanding the Oxlint configuration
+2. **Transmisión LIVE en Vivo para Papás**:
+   - Transmisión en tiempo real sincronizada con la pista.
+   - Formación limpia de **Equipos de Relevos de 4 integrantes** con carriles de salida.
+   - Mensaje de agradecimiento e integración del **Medallero General por Salón** al finalizar el torneo.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+3. **Planillas de Impresión para Jueces**:
+   - Impresión limpia en papel/PDF de Hits individuales con carriles y espacio para marcas de tiempo.
+   - Formato ajustado para 4, 3 o 2 Hits por hoja.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+4. **Informe Ejecutivo para Dirección**:
+   - Memoria oficial impresa para Directores con el podio por salón, ganadores de cada Hit y firmas oficiales de validación.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+5. **Respaldos e Históricos**:
+   - Exportación e importación de respaldos `.json` para conservar la memoria de torneos pasados.
+   - Reseteo seguro de datos local y nube para nuevas olimpiadas.
+
+---
+
+## 🛠️ Tecnologías
+
+- **React 19 + TypeScript + Vite**
+- **TailwindCSS 4**
+- **Lucide Icons**
+- **Firebase Firestore (Sincronización Cloud en Vivo)**
+- **GitHub Actions & Pages**
+
